@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+<div id="bodyContainer" ng-app="QuizApp">
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="card flip-container center col l12" ng-controller="QuizCtrl" ng-init="nextQuestion()">
+                    <div class="back" ng-class="{flip: answered, correct: correctAnswer, incorrect: !correctAnswer}">
+                        <p class="lead">{{answer()}}</p>
+                        <p>
+                            <button class="btn next option" ng-click="nextQuestion()" ng-disabled="working">Next Question</button>
+                        </p>
+                    </div>
+                    <div class="front center" ng-class="{flip: answered}">
+                        <p class="lead">{{title}}</p>
+                        <div class="row">
+                            <button class="btn option" ng-repeat="option in options" ng-click="sendAnswer(option)" ng-disabled="working">{{option.title}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/quiz-controller.js")
+}
+

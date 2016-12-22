@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Petroleance.Models.FanModels.Article>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <div class="col-lg-12">
+        <div class="col-lg-12">
+            <div class="panel-title">
+                <h5>Новости</h5>
+                <br />
+                <p>
+                    @Html.ActionLink("Создать", "Create")
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 ">
+
+            <div class="row">
+                @foreach (var item in Model)
+            {
+
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="responsive-img" style="width: 100%;" src="@Url.Content(item.SImage.FilePath +"/"+item.SImage.Name + "small" + item.SImage.Extension)" alt="@item.SImage.Alt">
+                                <span class="card-title">@item.Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    @if (item.Content != null)
+                                    {
+                                        @Html.Raw(item.Content.Substring(0, item.Content.Length < 80 ? item.Content.Length : 80))
+                                    }
+                                    else
+                                    {
+                                    <p>Это новость не содержить текста</p>
+                                    }
+                                    </p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="@Url.Action("Edit", "Articles", new { id = item.Id })" class="" role="button">Редактировать</a>
+                                    <a href="@Url.Action("Delete", "Articles", new { id = item.Id })" class="" role="button">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+    </article>
+
+

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Petroleance.Models.FanModels.Article>
+
+@{
+    foreach (var item in Model)
+    {
+        ViewBag.Title = item.Title;
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+
+<div class="container text-size text-center white">
+    @foreach (var item in Model)
+    {
+        <div class="col s12 l12">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row ">
+                        <div class="col s12">
+                            <div class="card-panel page-row">
+                                <div class="page-title">
+                                    <h4 class="black-text center">@item.Title</h4>
+                                </div>      
+                                <img class="img-responsive" style="width: 100%" src="@Url.Content(item.SImage.FilePath +"/"+item.SImage.Name + "large" + item.SImage.Extension)">
+                                @Html.Raw(item.Content)
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h5>@item.User.UserName</h5>
+                                        <p>@item.Date</p>
+                                        @if (item.MusicPath != null)
+                                        {
+                                            <article class="audio">
+                                                <audio style="width:100%" id="demo" controls preload="none">
+                                                    <source src="@item.MusicPath" type="audio/mp3" />
+                                                    <p>Your browser does not support HTML 5 audio element</p>
+                                                </audio>
+                                            </article>
+                                        }
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   }
+
+</div>
+

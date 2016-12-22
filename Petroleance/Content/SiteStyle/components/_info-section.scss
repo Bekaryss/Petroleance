@@ -1,0 +1,61 @@
+// _info-section.scss
+// Speciality tabs
+
+  // 1). Info Section menu
+  // 2). Info Section Content
+
+//Info Section Tabs Menu and Indicator
+.info-section {
+    
+    .indicator {
+      background-color: #fff;
+    }
+    .info-title{
+      margin-bottom: 9px;
+      .tabs{
+        height: auto;
+        .tab{
+          height: auto;
+        }
+      }
+      ul li{
+        display: block;
+        min-width: 0;
+      }
+    }
+//Info Section content
+.info-content{
+  padding: 15px 0 15px 0;
+  .info-cards {
+    //Every Cards
+      .card {
+        height: 240px;
+      }
+      .card-content{
+        padding: 11.8px;
+        //Card title
+        .card-title {
+            color: rgba(0, 0, 0, 0.88);
+            height: auto;
+            position: relative;
+            height: 60px;
+            padding-bottom: 5px;
+        }
+        .card-small-title {
+            color: #afaeae;
+        }
+        .card-small-content{
+            color: #afaeae;
+        }
+        //Card content
+        ul.speciality-list {
+            border-top: 1px solid #efefef;
+            li {
+              padding: 5px 5px 5px 5px;
+              border-bottom: 1px solid #efefef;
+            }
+        }
+      }
+  }
+  }
+}

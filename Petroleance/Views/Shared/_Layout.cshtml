@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Petroleance</title>
+    <link rel="shortcut icon" href="~/Content/ImageContent/petroleance.jpg" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/scripts/stylesheet")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/just")    
+    @Scripts.Render("~/bundles/bluiemp")
+
+</head>
+<body   >
+    <nav class="nav-extende">
+        <div class="nav-wrapper col s12 black-text" >
+            <a class="left" href="@Url.Action("Index", "Home")"><img class="img-brand" src="~/Content/ImageContent/petroleance.jpg"/></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li>@Html.ActionLink("Галерея", "Gallery", "Home")</li>
+                <li>@Html.ActionLink("Новости", "News", "Home")</li>
+                <li>@Html.ActionLink("Тесты", "Test", "Home")</li>
+                <li>@Html.ActionLink("Статистика", "Statistics", "Home")</li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>@Html.ActionLink("Галерея", "Gallery", "Home")</li>
+                <li>@Html.ActionLink("Новости", "News", "Home")</li>
+                <li>@Html.ActionLink("Тесты", "Test", "Home")</li>
+                <li>@Html.ActionLink("Статистика", "Statistics", "Home")</li>
+            </ul>
+
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    <footer class="page-footer black-text darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class=""><b>Petroleance</b></h5>
+                    <p class="">это студенческая организация основанная при поддержке Казахстанско Британском Университете.</p>
+                </div>
+                <div class="col l6 s12">
+                    <address>
+                        Контакты<br />
+                        Адрес:
+                        ул. Толе Би 59<br />
+                        Время работы:
+                        с 8:00 - 20:00<br />
+                        Телефон:
+                        8701-852-74-14<br />
+                        Email:
+                        abylay.nadir@gmail.com
+
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2016 Almaty
+                <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+        </div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

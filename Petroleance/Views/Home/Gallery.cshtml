@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Petroleance.Models.FanModels.Image>
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+
+<div class="row white" ">
+    <div id="grid-container">
+
+        @foreach (var item in Model)
+        {
+            <div class="grid-item">
+                <a class="img-responsive" href="@Url.Content(item.FilePath +"/"+item.Name + "large" + item.Extension)" alt="@item.Alt" data-gallery>
+                    <div class="blur">
+                        <img src="@Url.Content(item.FilePath +"/"+item.Name + "middle" + item.Extension)" alt="@item.Alt" />
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+    <div class="blueimp-gallery blueimp-gallery-controls">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    var parameters = {
+        gridContainer: '#grid-container',
+        gridItems: '.grid-item',
+        enableImagesLoaded: true
+    };
+    var grid = new justifiedGrid(parameters);
+    grid.initGrid();
+
+    var items = '[data-gallery]';
+    var container = '.blueimp-gallery';
+
+    $(document).on('click', items, function (event) {
+        new window.blueimp.Gallery(
+            $(items),
+            {
+                container: $(container)[0],
+                index: this,
+                event: event,
+
+                onopen: function () { },
+                onopened: function () { },
+                onslide: function () { },
+                onslideend: function () { },
+                onslidecomplete: function () { },
+                onclose: function () { },
+                onclosed: function () { }
+            }
+        )
+    });
+    </script>
+
+}

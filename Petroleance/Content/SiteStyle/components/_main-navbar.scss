@@ -1,0 +1,82 @@
+//_main-navbar.scss
+
+//Nav bar top Menu
+.main-navbar {
+  height: $bl-1-lh-large;
+    img {
+        height: $bl-1-lh-large;
+        padding: 8px 0 8px 0;
+    }
+    img.small {
+        height: 42px;
+    }
+    .navbar-links {
+        li {
+            a {
+                display: block;
+                height: 100%;
+            }
+        }
+        li:hover {
+            background: #e1f5fe;
+        }
+        li.active {
+            background: transparent;
+            box-shadow: inset 0 -5px 0 #2196F3;
+        }
+    }
+}
+
+//Nav Bar Drop Down Menu
+ul.dropdown-content {
+    min-width: 240px;
+    max-width: 320px;
+    height: auto;
+    overflow: visible !important;
+    li {
+        min-height: 0;
+        a.sub-menu {
+          padding: 5px 20px 5px 20px;
+          i{
+            margin-left: -18px;
+            vertical-align: middle;
+            display: inline-block !important;
+          }
+        }
+    }
+    li.divider {
+      height: auto;
+      padding: 6px 20px 6px 20px;
+      background: transparent;
+      cursor: default;
+    }
+    li:first-child .divider{
+        padding-top: 20px;
+    }
+    li:hover {
+        background: #e1f5fe;
+    }
+    li.divider:hover {
+        background: transparent;
+    }
+    li:first-child a{
+        padding-top: 20px;
+    }
+    li:first-child {
+       ul li a {
+           padding-top: 5px;
+       }
+   }
+    li:last-child a{
+        padding-bottom: 20px;
+    }
+    li:last-child {
+        ul li a {
+            padding-bottom: 5px;
+        }
+    }
+    .alignment-left{
+      right:100%;
+      left: auto;
+    }
+}

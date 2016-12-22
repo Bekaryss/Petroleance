@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Petroleance.Models.TriviaQuestion>
+
+@{
+    ViewBag.Title = "Список вопросов";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <h4>Список вопросов</h4>
+
+    <p>
+        @Html.ActionLink("Добавить вопрос", "CreateQuestions", new { id = ViewBag.TestId })
+    </p>
+    @Html.ActionLink("Назад", "Index")
+    <table class="striped">
+        <thead>
+            <tr>
+                <th data-field="Name">Вопрос</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.Title)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditQuestions", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "DeleteQuestions", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</article>
+
+

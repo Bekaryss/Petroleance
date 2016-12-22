@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Petroleance.Models.TriviaQuestion>
+
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="test card-panel page-row">
+            <h4 class="center">
+                @ViewBag.TestTitle               
+            </h4>
+            <div class="col s12">
+                <h5 class="right"><span id="time"></span></h5>
+            </div>
+            @using (Html.BeginForm("CheckTest", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                foreach (var item in Model)
+                {
+                    <div class="row divider">
+                    </div>
+                    <div class="row test-block">
+                        <div class="col l12">
+                            <p class="title">
+                                @Html.Raw(item.Title)
+                            </p>
+                        </div>
+                        <div class="row">
+                            @foreach (var i in item.Options)
+                            {
+                                <div class="col s12 options">
+                                    <input id="@i.Id" name="@i.QuestionId" type="checkbox" value="@i.Id" />
+                                    <label for="@i.Id">@i.Title</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    
+                }
+                <div class="form-group">
+                    <div class="row">
+                        <input type="submit" id="clickButton" value="Отправить" class="btn btn-default" />                        
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section scripts{
+<script>
+    $('input[type="checkbox"]').on('change', function () {
+        $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+    });
+    function startTimer(duration, display) {
+        var start = Date.now(),
+            diff,
+            minutes,
+            seconds;
+        function timer() {
+            // get the number of seconds that have elapsed since
+            // startTimer() was called
+            diff = duration - (((Date.now() - start) / 1000) | 0);
+
+            // does the same job as parseInt truncates the float
+            minutes = (diff / 60) | 0;
+            seconds = (diff % 60) | 0;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (diff <= 0) {
+                // add one second so that the count down starts at the full duration
+                // example 05:00 not 04:59
+                start = Date.now() + 1000;
+            }
+            if (minutes == 0 && seconds == 0) {
+                document.getElementById('clickButton').click();
+            }
+        };
+        // we don't want to wait a full second before the timer starts
+        timer();
+        setInterval(timer, 1000);
+    }
+
+    window.onload = function () {
+        var fiveMinutes = 60 * 15,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+    };
+
+
+</script>
+    }

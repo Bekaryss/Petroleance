@@ -1,0 +1,196 @@
+//_variables.scss
+/* ==========================================================================
+   Main Style variables
+   ========================================================================== */
+/**
+ * Table of Contents:
+ *
+ *  1. Colors
+ *  2. Typography
+  * * 1). Help Bar
+  * * 2). Main Nav Bar
+  * * 3). OWL Carousel-caption
+  * * 4). Info Section Tabs
+  * * 5). Card Nesw Content
+  * * 6). Infographics
+  * * 7). Left Menu (Main)
+  * * 8). breadcrumbs
+ */
+
+/* 1. Colors
+  ========================================================================== */
+  //Help Bar Block-0
+  $bl-0-hover-ef: #42a5f5;
+  $bl-0-active-ef: #42A5F5;
+
+  //Blue
+  $blue: #2196f3;
+
+
+/* 1. Typography
+   ========================================================================== */
+// =>> Help Bar Block-0
+  $bl-1-font: 500 0.875rem Roboto; //17px
+  $bl-1-line-heigh: 42px;
+
+// =>> Main Nav Bar Block-0 ================================================
+  //Large
+  $bl-1-font-large: 400 1rem Roboto; //16px
+  $bl-1-lh-large: 60px;
+  //Medium Large
+  $bl-1-font-medium: 400 0.875rem Roboto; //14px
+  $bl-1-lh-medium: 52px;
+
+// =>> OWL carousel-caption ================================================
+  $carousel-max-height: 530px;
+  //Main title
+  $carousel-titel-large: 500 1.375rem Roboto; //22px
+  $carousel-titel-middle: 500 1.125rem Roboto; //18px
+  $carousel-titel-tablet: 500 1rem Roboto; //16px
+  //Sub-title
+  $carousel-sub-titel-large: 300 1.25rem Roboto; //22px
+  $carousel-sub-titel-middle: 300 1rem Roboto; //18px
+  $carousel-sub-titel-tablet: 300 0.875rem Roboto; //16px
+
+  //Button
+  //PC Large
+  $carousel-btn-large: 400 0.875rem Roboto; //14px
+  $carousel-brn-large-height: 28px;
+  //PC Middle
+  $carousel-btn-middle: 400 0.75rem Roboto; //12px
+  $carousel-brn-middle-height: 22px;
+  //Tablet
+  $carousel-btn-tablet: 400 0.625rem Roboto; //10px
+  $carousel-brn-tablet-height: 20px;
+
+
+// =>> Sub NavBar ==========================================================
+  //Large
+  $sub-menu-large: 400 0.875rem Roboto; //14px
+  $sub-menu-middle: 400 0.8125rem Roboto; //13px;
+
+
+// =>> Info Section Tabs ================================================
+  // Info-title
+  $info-title-large: 400 1rem Roboto; //16px
+  $info-title-middle: 400 0.875rem Roboto; //14px
+  //Card title
+  $info-card-title-large: 500 0.9375rem Roboto; //15px
+  $info-card-title-middle: 500 0.875rem Roboto; //14px
+  $info-card-title-small: 500 0.75rem Roboto; //12px
+  //Card small title
+  $info-card-small-title-large: 400 0.75rem Roboto; //12px
+
+  //Card small content
+  $info-card-small-content-large: 400 0.875rem Roboto; //14px
+
+  //Card info content speciality-list
+  $info-content-large: 400 0.9375rem Roboto; //15px
+  $info-content-middle: 400 0.8125rem Roboto; //13px
+  $info-content-tablet: 400 0.9rem Roboto; //14.5
+  $info-content-small: 400 0.6875rem Roboto; //11px
+
+
+
+// =>> Card News content ================================================
+  // Title Head
+  $news-head-title-large: 400 1rem  Roboto;
+  //Card-title
+  $news-card-title: 400 1rem Roboto; //16px
+  //card-data
+  $news-data-large: 400 0.875rem Roboto; //14px
+  $news-data-middle: 400 0.8125rem Roboto; //13px
+  $news-data-small: 400 0.75rem Roboto; //12px
+
+
+// =>> Card-list Events and Press ================================================
+  $card-list-large: 400 0.875rem Roboto; //14px
+  $card-list-small: 400 0.75rem Roboto; //12px
+
+
+// =>> Infographics ================================================
+  //Main title
+  $ig-main-title: 500 1.0625rem Roboto; //17px
+  //Sub title
+  $ig-sub-title: 400 1rem Roboto; //16px
+
+
+// =>> SEO Text ================================================
+  //H1
+  $seo-h1-large: 500 1.125rem Roboto; //18px
+  $seo-h1-middle: 500 1rem Roboto; //16px
+  $seo-h1-small: 500 0.875rem Roboto; //14px
+  //H2
+  $seo-h2-large: 500 1rem Roboto; //16px
+  $seo-h2-middle: 500 0.875rem Roboto; //14px
+  $seo-h2-small: 500 0.75rem Roboto; //12px
+
+
+// =>> Left Menu (Main)  ================================================
+  $left-menu-large: 400 0.875rem Roboto; //14px
+  $left-menu-middle: 400 0.75rem Roboto; //12px
+
+
+// =>> breadcrumbs ================================================
+  $breadcrumb-large: 400 0.875rem Roboto; //14px
+  $breadcrumb-middle: 400 0.75rem Roboto; //12px
+
+
+
+  /*
+  10px	0.625rem
+  11px	0.6875rem
+  12px	0.75rem
+  13px	0.8125rem
+  14px	0.875rem
+  15px	0.9375rem
+  16px	1rem
+  17px	1.0625rem
+  18px	1.125rem
+  19px	1.1875rem
+  20px	1.25rem
+  21px	1.3125rem
+  22px	1.375rem
+  23px	1.4375rem
+  24px	1.5rem
+  25px	1.5625rem
+  26px	1.625rem
+  27px	1.6875rem
+  28px	1.75rem
+  29px	1.8125rem
+  30px	1.875rem
+  31px	1.9375rem
+  32px	2rem
+  33px	2.0625rem
+  34px	2.125rem
+  35px	2.1875rem
+  36px	2.25rem
+  37px	2.3125rem
+  38px	2.375rem
+  39px	2.4375rem
+  40px	2.5rem
+  41px	2.5625rem
+  42px	2.625rem
+  43px	2.6875rem
+  44px	2.75rem
+  45px	2.8125rem
+  46px	2.875rem
+  47px	2.9375rem
+  48px	3rem
+  49px	3.0625rem
+  50px	3.125rem
+  51px	3.1875rem
+  52px	3.25rem
+  53px	3.3125rem
+  54px	3.375rem
+  55px	3.4375rem
+  56px	3.5rem
+  57px	3.5625rem
+  58px	3.625rem
+  59px	3.6875rem
+  60px	3.75rem
+  61px	3.8125rem
+  62px	3.875rem
+  63px	3.9375rem
+  64px	4rem
+   */

@@ -1,0 +1,24 @@
+// breadcrumbs.scss
+.breadcrumbs{
+
+    position: relative;
+    background-color: transparent;
+    box-shadow: none;
+    .breadcrumb{
+      font-size:13px;
+    }
+    .breadcrumb:first-child::before{
+      content: none;
+    }
+    .breadcrumb::before{
+      content: '\f2fb';
+      color: rgba(255,255,255,.7);
+      display: inline-block;
+      font-family: 'Material-Design-Iconic-Font';
+      font-weight: 400;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      margin: 0 8px;
+      font-size: 14px;
+    }
+}

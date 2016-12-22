@@ -1,0 +1,58 @@
+// small-parts.scss
+// Здесь вы найдете стили маленьких частей главной страницы
+
+/*
+  * Table of Contents:
+  *
+  *
+  * 1. Sub NavBar
+  * 2. Student Life (s-life)
+  * 3. Main Gallery
+  */
+// =>> Sub NavBar
+.sub-navbar{
+  height: 40px;
+  ul li a{
+    line-height: 40px;
+  }
+}
+
+// =>> Student live
+.s-life{
+  padding-top: 20px;
+  background-color: #F5F5F5;
+  .row{
+    display: inline-block;
+  }
+}
+
+// =>> Main Gallery
+
+.main-gallery{
+  .s12{
+    padding: 0;
+  }
+
+  .photo{
+
+    padding: 0;
+    img{
+      width: 100%;
+    height: auto;
+    vertical-align: middle;
+    }
+  }
+
+}
+
+// SEO Text
+
+  .seo-block{
+    background-color: #424242;
+    .seo-text{
+      padding-bottom: 10px;
+    }
+    .row{
+      display: inline;
+    }
+  }

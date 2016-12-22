@@ -1,0 +1,62 @@
+﻿@model Petroleance.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+<h4 class="center">@ViewBag.Title.</h4>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col offset-l2 s12 m8">
+            <div class="card">
+                <div class="card-title ">
+                    <p class="center"><b>Создайте новую учетную запись.</b></p>
+                </div>
+                <div class="card-content">
+
+                    <hr />
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-action">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Регистрация" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+   
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

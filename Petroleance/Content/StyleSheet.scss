@@ -1,0 +1,191 @@
+﻿body {
+    background-color: white;
+}
+
+nav{
+    opacity: 0.5;
+    position:absolute;
+    background-color: #ffffff;
+    display: inline-block;
+    min-height: 140px;
+    max-height: 200px;
+    color: black;
+    font-family: 'Roboto';
+    .img-brand{
+        padding: 5px;
+        width: auto;
+        max-height: 140px;
+    }
+      ul {
+          margin-top: 1%;
+        a{
+            line-height: 60px;
+            font-size: 18px;
+            color: black !important;
+        }
+    }
+
+    .side-nav{
+        color: black;
+    }
+}
+.login-card{
+    align-content: center;
+    padding: 10%;
+}
+
+.card{
+    padding-left: 5%;
+    padding-right: 5%;
+    .card-title{
+        padding-left: 8%;
+        padding: 2%;
+    }
+}
+
+footer{
+    background-color: #7fa2c6 !important;
+    color: black;
+}
+.parallax-container {
+            height: 330px;
+        }
+
+.owl-stage {
+    margin:0 !important;
+}
+.owl-item{
+    margin: 0;
+}
+.main-slider{
+   margin-bottom: 40px;
+  .owl-carousel, .owl-theme{
+    .owl-item
+    {
+        margin: 0;
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+  }
+
+.owl-carousel .owl-video{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.owl-theme{
+  .owl-nav div {
+    position: absolute;
+  }
+ .owl-nav{
+    margin:0;
+    .owl-prev{
+      background: rgba(0, 0, 0, 0.5);
+      color:white;
+      top: 45%;
+      left: 1%;
+    }
+  .owl-next{
+    background: rgba(0, 0, 0, 0.5);
+    color:white;
+    top: 45%;
+    right: 1%;
+  }
+}
+ .owl-dots{
+    position: absolute;
+    bottom: 2%;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+}
+.main-slider{
+    .card {
+        padding:0;
+    }
+}
+
+/*BLUR*/
+.blur img {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.blur img:hover {
+  -webkit-filter: blur(5px);
+}
+
+#grid-container {
+  width: 100%;
+  margin: auto;
+}
+
+.grid-item {
+  opacity: 0;
+  float: left;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-item.loaded {
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.main-text{
+    font-family: 'Roboto';
+    font-size: 18px;
+    margin:0;
+    padding: 5%;
+}
+#main-carousel{
+    margin-bottom: 30px;
+   
+}
+.gellery{
+}
+.newss{
+    .card{
+        padding: 0;
+    }
+}
+.news-card-title{
+    height: 60px;
+    overflow: hidden;
+    text-overflow: clip;
+}
+h5 {
+    font-size: 1.3rem;
+    line-height: 110%;
+    margin: .82rem 0 .656rem;
+}
+.test{
+    padding-left: 5%;
+    padding-right: 5%;
+    .title{
+        font-size: 20px;
+        padding: 10px;
+    }
+    .options{
+        font-size: 16px;
+        padding-top:5px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        label{
+            font-size: 18px;
+        }
+    }
+}

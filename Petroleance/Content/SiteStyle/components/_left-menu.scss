@@ -1,0 +1,40 @@
+// _left-menu.scss
+
+.left-menu{
+  .menu-header {
+		a {
+			display: block;
+			font-size: 0;
+			border-bottom: 1px solid #dfdfdf;
+		}
+        img {
+            width: 100%;
+        }
+    }
+  ul{
+    padding: 10px  0 80px 0;
+    li{
+      a{
+        border-left: 3px solid #fff;
+        display: block;
+        width: 100%;
+        padding: 3px 0 3px 23px;
+      }
+      a.active{
+        border-left: 3px solid $blue;
+      }
+      a:hover {
+        background: #e8eaf6;
+      }
+    }
+  }
+  ul.help-menu {
+        padding-bottom: 20px;
+        li {
+            border: none;
+            a {
+              color: #7f7d7c;
+            }
+        }
+    }
+}

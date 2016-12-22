@@ -1,0 +1,105 @@
+//_carousel.scss
+
+.main-slider{
+  .owl-carousel, .owl-theme{
+    .owl-item
+    {
+      max-height: $carousel-max-height;
+      img{
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        width: auto;
+        max-height: 530px;
+        object-fit: cover;
+      }
+    }
+
+  }
+
+.owl-carousel .owl-video{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.owl-theme{
+  .owl-nav div {
+    position: absolute;
+  }
+ .owl-nav{
+    margin:0;
+    .owl-prev{
+      background: rgba(0, 0, 0, 0.5);
+      top: 45%;
+      left: 1%;
+    }
+  .owl-next{
+    background: rgba(0, 0, 0, 0.5);
+    top: 45%;
+    right: 1%;
+  }
+}
+ .owl-dots{
+    position: absolute;
+    bottom: 2%;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: $medium-screen){
+    .owl-dots{
+       bottom: 0.5%;
+       .owl-dot span{
+         width: 6px;
+         height: 6px;
+       }
+   }
+  }
+}
+.owl-carousel .owl-stage-outer{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.carousel-caption{
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  position: absolute;
+  text-align: center;
+}
+@media only screen and (min-width: $large-screen-up){
+  .carousel-caption{
+    left: 15%;
+    bottom: 9%;
+    padding: 0.8% 0.5% 0.8% 0.5%;
+      .btn{
+        margin-top: 2%;
+        padding: 0 10px 0 10px;
+        height: $carousel-brn-large-height;
+      }
+    }
+}
+@media only screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+  .carousel-caption{
+    left: 13%;
+    bottom: 10%;
+    padding: 0.7% 0.5% 0.7% 0.5%;
+      .btn{
+        margin-top: 1.5%;
+        padding: 0 10px 0 10px;
+        height: $carousel-brn-middle-height;
+      }
+    }
+}
+@media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen){
+  .carousel-caption{
+    left: 8%;
+    bottom: 12%;
+    padding: 0.7% 0.5% 0.7% 0.5%;
+      .btn{
+        margin-top: 1.5%;
+        padding: 0 10px 0 10px;
+        height: $carousel-brn-tablet-height;
+      }
+    }
+}
+}

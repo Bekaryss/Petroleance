@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Scripts/app/quiz-controller.es5.js",
+    "inputFile": "Scripts/app/quiz-controller.js"
+  },
+  {
+    "outputFile": "Content/StyleSheet.css",
+    "inputFile": "Content/StyleSheet.scss"
+  },
+  {
+    "outputFile": "Content/StyleSheetAdmin.css",
+    "inputFile": "Content/StyleSheetAdmin.scss"
+  }
+]

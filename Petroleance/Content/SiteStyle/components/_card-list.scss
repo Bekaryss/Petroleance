@@ -1,0 +1,46 @@
+// card-list.scss
+
+.card-list{
+  background-color: #F5F5F5;
+  .row{
+    display: inline;
+    .col{
+      padding: 0 8px 0 8px;
+    }
+  }
+  .card{
+    margin-top: -10px;
+    display: flex;
+    .card-content{
+      padding: 0;
+    }
+    .event-press:hover{
+        background-color: #eeeeee;
+    }
+    @media only screen and (min-width: $small-screen-up){
+      .event-press{
+        padding: 15px;
+        border-bottom: 1px solid #e4e4e4;
+      }
+      .event-press:first-child{
+        padding: 30px 15px 15px 15px ;
+      }
+      .event-press:last-child{
+        padding: 15px 15px 30px 15px ;
+      }
+    }
+    @media only screen and (max-width: $small-screen){
+      .event-press{
+        padding: 5px;
+        border-bottom: 1px solid #e4e4e4;
+      }
+      .event-press:first-child{
+        padding: 15px 5px 5px 5px ;
+      }
+      .event-press:last-child{
+        padding: 5px 5px 15px 5px ;
+      }
+    }
+
+  }
+}

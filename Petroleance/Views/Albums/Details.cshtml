@@ -1,0 +1,43 @@
+﻿@model Petroleance.Models.FanModels.Album
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <h2>Details</h2>
+
+    <div>
+        <h4>Album</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SImage.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SImage.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</article>

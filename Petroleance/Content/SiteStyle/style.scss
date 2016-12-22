@@ -1,0 +1,20 @@
+@import 'base/reset.scss';
+
+@import 'vendors/materialize-src/sass/_materialize.scss';
+@import 'vendors/materialdesign-iconic-font/scss/_material-design-iconic-font.scss';
+
+@import 'utils/_variables.scss';
+@import 'helpers/_mixins.scss';
+@import 'base/_typography.scss';
+@import 'page/_page-structure.scss';
+@import 'components/_help-bar.scss';
+@import 'components/_main-navbar.scss';
+@import 'components/_carousel.scss';
+@import 'components/_small-parts.scss';
+@import 'components/_info-section.scss';
+@import 'components/_news.scss';
+@import 'components/_card-list.scss';
+@import 'components/_infographics.scss';
+@import 'components/_breadcrumbs.scss';
+@import 'components/_left-menu.scss';
+@import 'components/_footer.scss';

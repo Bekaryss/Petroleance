@@ -1,0 +1,210 @@
+﻿@model Petroleance.Models.FanModels.Article
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<article class="container">
+    <h2>Create</h2>
+    <div class="row">
+        <div class="col l12">
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Article</h4>
+                    <hr />
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">File input</label>
+                        <div class="col-md-10">
+                            <input type="file" name="file">
+                            <p class="help-block">
+                                Выберите музыку котрую хотите прикрепить
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(model => model.Content, new { @id = "editor1" })
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group hide">
+                        @Html.LabelFor(model => model.SImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SImageId, new { htmlAttributes = new { @class = "form-control", @id = "imageid" } })
+                            @Html.ValidationMessageFor(model => model.SImageId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="create" type="submit" value="Create" class="btn disabled" disabled />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col s12">
+            <div class="row">
+                <form id="fileinfo" enctype="multipart/form-data" method="post" name="fileinfo">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <h5>Добавить изображение</h5>
+                            <div class="row">
+                                <div class="col l2">
+                                    <span class="btn fileinput-button" id="add-btn">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>Add files...</span>
+                                        <input type="file" name="file" id="file" onchange="imgchange(this)">
+                                    </span>
+                                </div>
+                                <div class="col l2">
+                                    <a class="btn hide" href="#" id="start-upload">Обрезать</a>
+                                    <br />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row hide">
+                                <label>X1 <input type="text" size="4" id="x" name="x"></label>
+                                <label>Y1 <input type="text" size="4" id="y" name="y"></label>
+                                <label>W <input type="text" size="4" id="w" name="w"></label>
+                                <label>H <input type="text" size="4" id="h" name="h"></label>
+                                <label class="hidden"><input type="text" size="4" id="b" name="b" value="article"></label>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <img class="responsive-img" id="uploaded-image" style="width: 100%" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</article>
+
+<script src="~/Content/ckfinder/ckfinder.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    CKEDITOR.replace('editor1');
+    CKFinder.setupCKEditor(null, '@Url.Content("~/Content/ckfinder/")');
+    var jqXHRData;
+    var imageId;
+    var upload = false;
+
+    function imgchange(f) {
+        var filePath = $('#file').val();
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            destroyCrop();
+            $('#uploaded-image').attr('src', e.target.result);
+            $("#start-upload").removeClass("hide");
+            initCrop();
+        };
+        reader.readAsDataURL(f.files[0]);
+    }
+
+    function initCrop() {
+        $(function () {
+            $('#uploaded-image').Jcrop({
+                setSelect: [0, 0, 120, 300],
+                onChange: showCoords,
+                onSelect: showCoords,
+                aspectRatio: 10 / 4
+            });
+        });
+    }
+
+    $("#start-upload").on('click', function () {
+        if (upload == false) {
+            if (jqXHRData) {
+                jqXHRData.submit();
+            }
+            return false;
+        }
+    });
+
+    function destroyCrop() {
+        var jcropApi = $('#uploaded-image').data('Jcrop');
+
+        if (jcropApi !== undefined) {
+            jcropApi.destroy();
+            $('#uploaded-image').attr('style', "").attr("src", "");
+        }
+    }
+    var ww;
+    var hh;
+    $('#uploaded-image').on('load', function () {
+        var oheight = this.naturalHeight,
+            owidth = this.naturalWidth;
+        var rheight = this.clientHeight,
+            rwidth = this.clientWidth;
+
+        hh = oheight / rheight;
+        ww = owidth / rwidth;
+
+    });
+
+    function showCoords(c) {
+        $('#x').val(Math.floor(c.x * ww));
+        $('#y').val(Math.floor(c.y * hh));
+        $('#w').val(Math.floor(c.w * ww));
+        $('#h').val(Math.floor(c.h * hh));
+    };
+    $(document).ready(function () {
+
+        'use strict';
+        var name = "Bekarys"
+        $('#fileinfo').fileupload({
+            url: '/Image/SystemImageCreate',
+            dataType: 'json',
+            add: function (e, data) {
+                jqXHRData = data;
+            },
+            done: function (event, data) {
+                if (data.result.isUploaded) {
+                    destroyCrop();
+                    $("#uploaded-image").attr("src", data.result.SendFilePath);
+                    $("#add-btn").addClass("hide");
+                    $("#create").removeClass('disabled');
+                    $("#start-upload").addClass('disabled');
+                    $("#create").attr('disabled', false);
+                    $("#start-upload").attr('disabled', true);
+                    $("#imageid").val(data.result._id);
+                    upload = true;
+                } else {
+
+                }
+            },
+            fail: function (event, data) {
+                if (data.files[0].error) {
+                    alert(data.files[0].error);
+                }
+            }
+        });
+    });
+</script>

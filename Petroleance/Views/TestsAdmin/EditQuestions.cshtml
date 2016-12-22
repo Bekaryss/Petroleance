@@ -1,0 +1,50 @@
+﻿@model Petroleance.Models.TriviaQuestion
+
+@{
+    ViewBag.Title = "EditQuestions";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <h2>EditQuestions</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>TriviaQuestion</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                   @Html.TextAreaFor(model => model.Title, new { @id = "editor2" })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "QuestionList", new { id = ViewBag.TestId })
+    </div>
+
+    @section Scripts {
+        <script src="~/Content/ckfinder/ckfinder.js" type="text/javascript"></script>
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+            CKEDITOR.replace('editor2');
+            CKFinder.setupCKEditor(null, '@Url.Content("~/Content/ckfinder/")');
+        </script>
+    }
+
+
+</article>

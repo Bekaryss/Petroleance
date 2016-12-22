@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Petroleance.Models.FanModels.Album>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<article class="container">
+    <div class="col l12">
+        <div class="row">
+            <div class="panel-title">
+                <h2>Албомы</h2>
+                <br />
+                <p>
+                    @Html.ActionLink("Создать новый Альбом", "Create")
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col s12 m4">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "Albums", new { id=item.AlbumId })" class="col-sm-12 thumbnail text-center">
+                            <div class="card-image">
+                                <img alt="@item.SImage.Alt" class="responsive-img" src="@Url.Content(item.SImage.FilePath +"/"+item.SImage.Name + "small" + item.SImage.Extension)">
+                                <span class="card-title black-text">@item.Name</span>
+                            </div>
+                        </a>
+                        <div class="card-action">
+                            <a href="@Url.Action("Edit", "Albums", new { id = item.AlbumId })">Редактировать</a>
+                            <a href="@Url.Action("Delete", "Albums", new { id = item.AlbumId })">Удалить</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</article>
+
+

@@ -1,0 +1,169 @@
+﻿@model Petroleance.Models.FanModels.Image
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <div class="col l12">
+        <h2>Загрузка изображения</h2>
+
+        <form id="fileinfo" enctype="multipart/form-data" method="post" name="fileinfo">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Alt, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Alt, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Alt, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <span class="btn fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Выбрать файл</span>
+                            <input type="file" name="file" id="file" onchange="imgchange(this)">
+                        </span>
+                        <a class="btn hide" href="#" id="hl-crop-image">Обрезка</a>
+                        <a class="btn" href="#" id="hl-start-upload">Загрузить</a>
+                    </div>
+                    <br />
+                    <div class="row hide">
+                        <input type="text" name="a" value="@ViewBag.AlbumId" class="hidden">
+                        <label>X1 <input type="text" size="4" id="x" name="x"></label>
+                        <label>Y1 <input type="text" size="4" id="y" name="y"></label>
+                        <label>W <input type="text" size="4" id="w" name="w"></label>
+                        <label>H <input type="text" size="4" id="h" name="h"></label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div id="up-s" class="hide">
+            <p class="text-success">Изображение успешно добавлено</p>
+        </div>
+        <br />
+        @Html.ActionLink("Back", "ImageList", new { Id = ViewBag.AlbumId })
+    </div>
+    <div class="col l12">
+        <img class="responsive-img" id="uploaded-image" />
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+@section scripts{
+    <script>
+    var jqXHRData;
+    var imageId;
+    function imgchange(f) {
+        var filePath = $('#file').val();
+        var reader = new FileReader();
+        if (!(/\.(gif|jpg|jpeg|tiff|png)$/i).test(filePath) ) {
+           alert('This URL is not a valid image type. Please use a url with the known image types gif, jpg, jpeg, tiff or png.');
+            return false;
+        }
+        else {
+            reader.onload = function (e) {
+                $('#uploaded-image').attr('src', e.target.result);
+                $("#hl-crop-image").removeClass('hide');
+            };
+            reader.readAsDataURL(f.files[0]);
+        }
+    }
+
+    $("#hl-start-upload").on('click', function () {
+        if (jqXHRData) {
+            jqXHRData.submit();
+        }
+        return false;
+    });
+
+
+    $("#hl-crop-image").on("click", function (e) {
+        $("#hl-crop-image").removeClass("hide");
+        initCrop();
+    });
+
+    $("#hl-start-upload").on("click", function (e) {
+        e.preventDefault();
+    });
+
+    function initCrop() {
+        $(function () {
+            $('#uploaded-image').Jcrop({
+                setSelect: [0, 0, 150, 100],
+                onChange: showCoords,
+                onSelect: showCoords
+            });
+        });
+    }
+
+
+    function destroyCrop() {
+        var jcropApi = $('#uploaded-image').data('Jcrop');
+
+        if (jcropApi !== undefined) {
+            jcropApi.destroy();
+            $('#uploaded-image').attr('style', "").attr("src", "");
+        }
+    }
+    var ww;
+    var hh;
+    $('#uploaded-image').on('load', function () {
+        var oheight = this.naturalHeight,
+            owidth = this.naturalWidth;
+        var rheight = this.clientHeight,
+            rwidth = this.clientWidth;
+
+        hh = oheight / rheight;
+        ww = owidth / rwidth;
+
+    });
+
+    function showCoords(c) {
+        $('#x').val(Math.floor(c.x * ww));
+        $('#y').val(Math.floor(c.y * hh));
+        $('#w').val(Math.floor(c.w * ww));
+        $('#h').val(Math.floor(c.h * hh));
+    };
+    $(document).ready(function () {
+
+        'use strict';
+        $('#fileinfo').fileupload({
+            url: '/Image/ImageCreate',
+            dataType: 'json',
+            add: function (e, data) {
+                jqXHRData = data;
+            },
+            done: function (event, data) {
+                if (data.result.isUploaded) {
+                    destroyCrop();
+                    $("#uploaded-image").attr("src", data.result.SendFilePath);
+                    $("#fileinfo").addClass("hide");
+                    $("#up-s").removeClass("hide");
+                }
+            },
+            fail: function (event, data) {
+                if (data.files[0].error) {
+                    alert(data.files[0].error);
+                }
+            }
+        });
+    });
+</script>
+    }
+

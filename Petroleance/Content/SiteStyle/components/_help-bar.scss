@@ -1,0 +1,32 @@
+﻿// _help-bar.scss
+
+
+// Top Help Bar
+.help-bar {
+    margin-bottom: 0;
+    // kense
+    span {
+        padding: 0 1%;
+    }
+    .hb-ul-li {
+      list-style: none;
+      a:hover{
+        background-color: $bl-0-hover-ef;
+      }
+      li.active {
+          background: $bl-0-active-ef;
+      }
+    }
+    //Menu in HelpBar
+    ul.hb-base-menu {
+        @extend .hb-ul-li;
+        li {
+          padding: 0;
+            display: inline-block;
+            vertical-align: top;
+            a {
+                padding: 0 10px;
+            }
+        }
+    }
+}

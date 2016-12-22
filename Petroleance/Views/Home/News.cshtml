@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Petroleance.Models.FanModels.Article>
+
+@{
+    ViewBag.Title = "Новости";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+
+<div class="container newss">
+    <h4>Новости</h4>
+
+    <div class="row">
+        <div class="col s12 m12 l12 padding">
+            @foreach (var item in Model)
+            {
+                <div class="col s12 m6 l4 ">
+                    <div class="card hoverable no-pad ccard">
+                        <a class="card-image waves-effect waves-block waves-light" href="@Url.Action("NewsId", "Home", new { id = item.Id})">
+                            <img class="img-responsive" src="@Url.Content(item.SImage.FilePath +"/"+item.SImage.Name + "middle" + item.SImage.Extension)">
+                        </a>
+                        <div class="card-content">
+                            <h5>@item.Title.Substring(0, item.Title.Length < 26 ? item.Title.Length : 26)</h5>
+                            <div class="news-card-title">
+                                @if (item.Content != null)
+                                {
+                                    @Html.Raw(item.Content.Substring(0, item.Content.Length < 60 ? item.Content.Length : 60))
+                                }
+                            </div>
+                            <div class="card-data valign-wrapper">
+                                <div class="left">
+                                    @item.Date
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    
+</div>
+
+
+

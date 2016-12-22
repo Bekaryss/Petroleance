@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Petroleance.Models.TriviaTest>
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col s12 m6">
+                <div class="card blue-grey">
+                    <div class="card-content white-text">
+                        <span class="card-title">@item.Title</span>
+                        <p>
+                            @item.Date;
+                        </p>  
+                    </div>
+                    <div class="card-action">
+                        <a href="@Url.Action("TestId", "Home", new { id = item.Id})">Начать тест</a>
+                        <a href="@Url.Action("UserRating", "Home", new { id = item.Id})">Рейтинг</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

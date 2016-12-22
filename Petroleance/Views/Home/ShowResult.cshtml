@@ -1,0 +1,36 @@
+﻿@model Petroleance.Models.Statistics
+
+@{
+    ViewBag.Title = "ShowResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col s12 card center">
+            <div class="col s12">
+                <br />
+                <h5>Ваш результат</h5>
+                <div class="col s6">
+                    Правильные ответы
+                    <h4>@Model.CorrectAnswer</h4>
+                </div>
+                <div class="col s6">
+                    Ошибки
+                    <h4>@Model.WrongAnswer</h4>
+                </div>             
+                <h5>@Model.Percentage %</h5>
+                <div class="row">
+                    @Html.ActionLink("Назад", "Test", "Home")
+                    <br /><br /><br /><br />
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>

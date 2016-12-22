@@ -1,0 +1,44 @@
+// _mixins.scss
+
+/* ==========================================================================
+   Main Style Mixins
+   ========================================================================== */
+/**
+ * Table of Mixins:
+ *
+ *  1. Respond-to
+ *  2.
+ *  3.
+ */
+
+/* 1. Respond-to
+  ========================================================================== */
+/*
+  Materialize responsive width
+  $large-screen-up: 1201px
+  $large-screen: 1200px
+  $medium-screen-up: 993px
+  $medium-screen: 992px
+  $small-screen-up: 601px
+  $small-screen: 600px
+ */
+@mixin respond-to($media) {
+  @if $media == desktop {
+    @media only screen and (min-width: $large-screen-up) { @content; }
+  }
+  @else if $media == laptop {
+    @media only screen and (min-width: $medium-screen-up) and (max-width: $large-screen) { @content; }
+  }
+  @else if $media == laptop-up {
+    @media only screen and (min-width: $medium-screen-up) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen) { @content; }
+  }
+  @else if $media == tablet-up {
+    @media only screen and (min-width: $small-screen-up) { @content; }
+  }
+  @else if $media == mobile {
+    @media only screen and (max-width: $small-screen) { @content; }
+  }
+}

@@ -1,0 +1,24 @@
+﻿nav {
+  opacity: 0.5;
+  background-color: #ffffff;
+  display: inline-block;
+  min-height: 140px;
+  max-height: 200px;
+  color: black;
+  font-family: 'Roboto'; }
+  nav .img-brand {
+    padding: 5px;
+    width: auto;
+    max-height: 140px; }
+  nav ul {
+    margin-top: 1%; }
+    nav ul a {
+      line-height: 60px;
+      font-size: 18px;
+      color: black !important; }
+  nav .side-nav {
+    color: black; }
+
+.card-content {
+  height: 60px; }
+

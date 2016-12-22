@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Petroleance.Models.TriviaTest>
+
+@{
+    ViewBag.Title = "Список тестов";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <h4>Список тестов</h4>
+
+    <p>
+        @Html.ActionLink("Создать новый", "Create")
+    </p>
+    <table class="striped">
+        <thead>
+            <tr>
+                <th data-field="Name">Имя</th>
+                <th data-field="Date">Дата</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Изменить название", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Посмотреть вопросы", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</article>
+

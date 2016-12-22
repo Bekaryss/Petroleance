@@ -1,0 +1,65 @@
+﻿@model Petroleance.Models.TriviaOption
+
+@{
+    ViewBag.Title = "CreateOptions";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<article class="container">
+    <h2>CreateOptions</h2>
+
+
+    @using (Html.BeginForm("CreateOptionss", "TestsAdmin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h4>Ответы</h4>
+        <button type="button" class="btn">Добавить ответ</button>
+        <p>Нажмите на кнопку чтобы добавить новый вариант ответа</p>
+        <hr />
+
+        <input id="name" name="id" type="number" value="@ViewBag.TestId" hidden />
+        <ol>
+            <li>
+                <div class="input-field col s12">
+                    <input class="form-control text-box single-line" id="Title" name="Title" type="text" value="">
+                    <label for="Title">Ответ</label>
+                </div>
+                <div class="col s12">
+                    <input type="checkbox" id="IsCorrect" name="IsCorrect" />
+                    <label for="IsCorrect">Правильный</label>
+                </div>
+            </li>
+        </ol>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        </div>
+    }
+
+    <div>
+        <br />
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</article>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+        var n = 1;
+
+        $(document).ready(function(){
+            $("button").click(function () {
+                $("ol").append("<li><div class='input-field col s12'><input class='form-control text-box single-line' id='Title" + n + "' name='Title" + n + "' type='text' value=''><label for='Title" + n + "'>Ответ</label></div><div class='col s12'><input class='checkbox' id='IsCorrect" + n + "' name='IsCorrect" + n + "' type='checkbox'><label for='IsCorrect" + n + "'>Правильный</label></div>   <a href='javascript:void(0);' class='remove'>&times;</a></li>");
+                n++;
+            });
+            $(document).on("click", "a.remove" , function() {
+                $(this).parent().remove();
+            });
+        });
+    </script>
+}

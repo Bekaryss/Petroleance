@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Petroleance.Models.Statistics>
+@{
+    ViewBag.Title = "Trivia Statistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="row">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <h5>Статистика тестов</h5>
+            </div>
+            <ul class="collection">
+                @foreach (var item in Model)
+                {
+                    if (item.UserId != "")
+                    {
+                        <li class="collection-item col s12">
+                            <img src="~/Content/ImageContent/petroleance.jpg" alt="" class="circle col s1">
+
+                            <span class="title col s11 center">@foreach (var i in ViewBag.TestTitle)
+                            {
+                                if (i.Id == item.TestId)
+                                {@i.Title}
+                            }</span>
+                            <p class="col s6">
+                                <span class="green-text">Правильные ответы: @item.CorrectAnswer </span>
+
+                                <span class="red-text right">Неправильные ответы: @item.WrongAnswer</span>
+                            </p>
+                            <a href="#!" class="secondary-content col s5"><i class="material-icons right">Оценка: @item.Percentage %</i></a>
+                        </li>
+                    }
+
+                }
+                </ul>
+            
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+}

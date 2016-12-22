@@ -1,0 +1,59 @@
+// _news.scss
+
+.block-head{
+  ul{
+    padding: 10px 0 10px 0;
+    display: inline-flex;
+    li:last-child{
+      margin-left: 20px;
+    }
+  }
+}
+
+.news{
+  background-color: #F5F5F5;
+  padding-top: 10px;
+  .row{
+    .col{
+      padding: 0;
+    }
+
+  }
+
+
+  .owl-item{
+    padding: 0 5px 0 5px;
+
+    .card-image{
+        height: 166.641px;
+    }
+    .card-content{
+      padding: 15px;
+      .news-card-title{
+        margin-bottom: 6%;
+        overflow: hidden;
+        text-overflow: clip;;
+        @include respond-to(laptop-up){
+            height: 60px;
+        }
+        @include respond-to(tablet){
+            height: 60px;
+        }
+        @include respond-to(mobile){
+            height: 40px;
+        }
+      }
+
+      .card-data{
+        width: 100%;
+        display: inline-block;
+      }
+    }
+
+  }
+}
+.owl-theme{
+  .owl-dots{
+      margin: 0 auto !important;
+  }
+}

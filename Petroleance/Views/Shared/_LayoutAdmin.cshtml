@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/scripts/stylesheetAdmin")
+    @Styles.Render("~/scripts/fileupload")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    @Scripts.Render("~/bundles/ckeditor")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/jcrop")
+    @Scripts.Render("~/bundles/just")
+    @Scripts.Render("~/bundles/jupload")
+   
+</head>
+<body>
+    <header>
+        <nav class="nav-extende">
+            <div class="nav-wrapper col s12 black-text">
+                <a class="left" href="@Url.Action("Index", "Home")"><img class="img-brand" src="~/Content/ImageContent/petroleance.jpg" /></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li>@Html.ActionLink("Альбомы", "Index", "Albums")</li>
+                    <li>@Html.ActionLink("Новости", "Index", "Articles")</li>
+                    <li>@Html.ActionLink("Тесты", "Index", "TestsAdmin")</li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li>@Html.ActionLink("Play", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Statistics", "Statistics", "Home")</li>
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+   
+    @RenderSection("scripts", required: false)
+</body>
+</html>

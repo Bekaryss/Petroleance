@@ -1,0 +1,340 @@
+//_typography.scss
+
+  /**
+   * Table of Contents:
+   *
+    * * 1). Help Bar
+    * * 2). Main Nav Bar
+    * * 3). OWL Carousel-caption
+    * * 4). Info Section Tabs
+    * * 5). Card Nesw Content
+    * * 6). Infographics
+    * * 7). SEO text
+    * * 8). Left Menu (Main)
+    * * 9). Breadcrumbs
+   */
+.bold-text{
+  font-weight: 500;
+}
+//Header HelpBar Block-0
+.help-bar{
+  font: $bl-1-font;
+  line-height: $bl-1-line-heigh;
+}
+
+// =>> header Main NavBar Block-1
+//993 and 1200 PC ver.
+@media only screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+  nav.main-navbar ul.navbar-links a{
+    font: $bl-1-font-medium;
+    line-height: $bl-1-lh-large;
+  }
+  ul.dropdown-content li a.sub-menu{
+    font: $bl-1-font-medium;
+    line-height: normal;
+    white-space: normal;
+  }
+  li.divider{
+    line-height: normal;
+    color: #424242;
+    font: $bl-1-font-medium;
+  }
+}
+
+//1201 and more PC ver.
+@media only screen and (min-width: $large-screen-up){
+  nav.main-navbar ul.navbar-links a{
+    font: $bl-1-font-large;
+    line-height: $bl-1-lh-large;
+  }
+  ul.dropdown-content li a.sub-menu{
+    font: $bl-1-font-large;
+    line-height: normal;
+    white-space: normal;
+  }
+  li.divider{
+    line-height: normal;
+    color: #424242;
+    font: $bl-1-font-medium;
+  }
+}
+
+
+// =>> Owl Carousel caption
+@media only screen and (min-width: $large-screen-up){
+  .main-slider {
+    .carousel-caption{
+      .slider-title{
+        font: $carousel-titel-large;
+      }
+      .slider-sub-title{
+        font: $carousel-sub-titel-large;
+      }
+      .btn{
+        font: $carousel-btn-large;
+        line-height: $carousel-brn-large-height;
+      }
+    }
+  }
+}
+@media only screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+  .main-slider {
+    .carousel-caption{
+      .slider-title{
+        font: $carousel-titel-middle;
+      }
+      .slider-sub-title{
+        font: $carousel-sub-titel-middle
+      }
+      .btn{
+        font: $carousel-btn-middle;
+        line-height: $carousel-brn-middle-height;
+      }
+    }
+  }
+}
+@media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen){
+  .main-slider {
+    .carousel-caption{
+      .slider-title{
+        font: $carousel-titel-tablet;
+      }
+      .slider-sub-title{
+        font: $carousel-sub-titel-tablet;
+      }
+      .btn{
+        font: $carousel-btn-tablet;
+        line-height: $carousel-brn-tablet-height;
+      }
+    }
+  }
+}
+// =>> Sub menu NavBar
+  nav.sub-navbar{
+    font: $sub-menu-large;
+    line-height: 40px;
+  }
+  @media only screen and (max-width: $large-screen){
+  nav.sub-navbar ul a{
+      font: $sub-menu-middle;
+    }
+  }
+
+
+// =>> Info Section Tabs
+  //PC ver.
+.info-section{
+
+      //info-title tabs menu
+      .info-title{
+        ul li a{
+          font: $info-title-large;
+          line-height: 40px;
+          @include respond-to(mobile){
+            font: $info-title-middle;
+            line-height: 40px;
+          }
+        }
+      }
+      //Info content title
+      .card-content{
+        .card-title{
+          font: $info-card-title-large;
+        }
+        //small-title
+        .card-small-title{
+          font: $info-card-small-title-large;
+        }
+        .card-small-content{
+          font: $info-content-large;
+        }
+        //Info speciality content
+        ul.speciality-list{
+          li{
+            a{
+              font: $info-content-large;
+              line-height: 0;
+            }
+          }
+        }
+      }
+        //PC small ver.
+        @media only screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+          //Info content title
+          .card-content{
+            .card-title{
+              font: $info-card-title-middle;
+            }
+            //small-title
+            .card-small-title{
+              font: $info-card-small-title-large;
+            }
+            .card-small-content{
+              font: $info-content-middle;
+            }
+            //Info speciality content
+            ul.speciality-list{
+              li{
+                a{
+                  font: $info-content-middle;
+                }
+              }
+            }
+        }
+      }
+      //Tablet ver.
+      @media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen){
+        //Info content title
+        .card-content{
+          .card-title{
+            font: $info-card-title-middle;
+          }
+          //small-title
+          .card-small-title{
+            font: $info-card-small-title-large;
+          }
+          .card-small-content{
+            font: $info-content-middle;
+          }
+          //Info speciality content
+          ul.speciality-list{
+            li{
+              a{
+                font: $info-content-tablet;
+              }
+            }
+          }
+      }
+  }
+}
+
+
+
+// =>> News Cariusel
+  //PC ver.
+  .block-head{
+    font: $news-head-title-large;
+  }
+  .news{
+
+    .card-data{
+      color: #7F7D7C;
+    }
+    @media only screen and (min-width: $large-screen-up){
+      .card-content{
+        font: $news-card-title;
+        .card-data{
+          font: $news-data-large;
+        }
+      }
+    }
+    //Tablet ver.
+    @media only screen and (max-width: $large-screen){
+      .card-content{
+
+        .card-data{
+          font: $news-data-middle;
+        }
+      }
+    }
+  }
+
+// =>> Card List
+  //Events and
+  @media only screen and (min-width: $small-screen-up){
+    .card-list{
+      font: $card-list-large;
+    }
+  }
+  @media only screen and (max-width: $small-screen){
+    .card-list{
+      font: $card-list-small;
+    }
+  }
+
+
+// =>> Infographics
+
+  .infographics{
+    .main-title{
+      font :$ig-main-title;
+
+    }
+    .sub-title{
+      font :$ig-sub-title;
+      color: #757575;
+    }
+  }
+
+// =>> SEO Text
+.seo-text{
+  color: #9e9e9e;
+  h1{
+    color: #cdcccc;
+  }
+  h2{
+    color: #cdcccc;
+  }
+}
+#visible-button{
+  color: #c0c0c0;
+}
+#invisible-button{
+  color: #c0c0c0;
+}
+  @media only screen and (min-width: $large-screen-up) {
+    .seo-block{
+      font-size: 14.5px;
+      h1{
+        font: $seo-h1-large;
+      }
+      h2{
+        font: $seo-h2-large;
+      }
+    }
+  }
+  @media only screen and (min-width: $small-screen-up) and (max-width: $large-screen) {
+    .seo-block{
+      font-size: 13.5px;
+      h1{
+        font: $seo-h1-middle;
+      }
+      h2{
+        font: $seo-h2-middle;
+      }
+    }
+  }
+  @media only screen and (max-width: $small-screen) {
+    .seo-block{
+      font-size: 12.5px;
+      h1{
+        font: $seo-h1-small;
+      }
+      h2{
+        font: $seo-h2-small;
+      }
+    }
+  }
+
+
+
+// =>> LeFt Menu(Main)
+@media only screen and (min-width: $large-screen-up){
+  .left-menu{
+    ul li a{
+      color: #000000;
+      font: $left-menu-large;
+    }
+  }
+}
+
+@media only screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+  .left-menu{
+    ul li a{
+      color: #000000;
+      font: $left-menu-middle;
+    }
+  }
+}
+
+// =>> Breadcrumbs

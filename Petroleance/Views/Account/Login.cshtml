@@ -1,0 +1,78 @@
+﻿@using Petroleance.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Выполнить вход";
+}
+<div class="row no-mar-bottom">
+    <div class="">
+        <div class=""><img style="margin:0; padding:0" class="responsive-img" src="~/Content/ImageContent/main_id9.png"></div>
+    </div>
+</div>
+<h4 class="center">@ViewBag.Title.</h4>
+<div class="row">
+    <div class="col s12">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col offset-l2 s12 m8">
+                        <div class="card">
+                            <div class="card-title ">
+                                <p class="center">Используйте локальную учетную запись для входа.</p>
+                            </div>
+                            <div class="card-content">
+                               
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <div class="checkbox">
+                                            @Html.CheckBoxFor(m => m.RememberMe)
+                                            @Html.LabelFor(m => m.RememberMe)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Выполнить вход" class="btn btn-default" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="card-action">
+                                <p>
+                                    @Html.ActionLink("Регистрация нового пользователя", "Register")
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               
+                @* Включите, когда будет включено подтверждение учетной записи для функции сброса пароля
+                    <p>
+                        @Html.ActionLink("Забыли пароль?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
